@@ -31,7 +31,7 @@ export const SwitchTheme = ({ className }: { className?: string }) => {
         type="checkbox"
         className="toggle toggle-primary bg-primary hover:bg-primary border-primary"
         onChange={handleToggle}
-        checked={isDarkMode}
+        checked={!isDarkMode}
       />
       {
         <label htmlFor="theme-toggle" className={`swap swap-rotate ${!isDarkMode ? "swap-active" : ""}`}>

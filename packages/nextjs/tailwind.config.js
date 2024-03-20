@@ -8,9 +8,9 @@ module.exports = {
     themes: [
       {
         light: {
-          primary: "#93BBFB",
+          primary: "#8C4CE2",
           "primary-content": "#212638",
-          secondary: "#DAE8FF",
+          secondary: "#F5F5F5",
           "secondary-content": "#212638",
           accent: "#93BBFB",
           "accent-content": "#212638",
@@ -40,7 +40,7 @@ module.exports = {
       },
       {
         dark: {
-          primary: "#212638",
+          primary: "#8C4CE2",
           "primary-content": "#F9FBFF",
           secondary: "#323f61",
           "secondary-content": "#F9FBFF",
