@@ -14,12 +14,16 @@ body {
   font-family: "Space Grotesk", sans-serif;
 }
 
-/* .app {
+.app {
   background-image: url("/loogies-bg.svg");
-  background-repeat: repeat-x;
-  background-position-y: 180%;
-  background-size: 100% 150%;
-} */
+  background-repeat: no-repeat;
+  background-position: bottom -80px right -380px;
+  background-size: 158%;
+}
+
+.container {
+  width: 75%;
+}
 
 h1,
 h2,
