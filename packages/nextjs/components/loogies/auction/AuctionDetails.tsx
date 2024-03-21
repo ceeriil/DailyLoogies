@@ -1,7 +1,7 @@
 import React from "react";
 import { Countdown } from "./Countdown";
 
-export const AuctionDetails = ({ name }: { name: string }) => {
+export const AuctionDetails = ({ name, currentBid }: { name: string; currentBid: number }) => {
   return (
     <div>
       <h1 className="font-bold text-[4rem] mb-10">{name}</h1>
@@ -12,7 +12,7 @@ export const AuctionDetails = ({ name }: { name: string }) => {
       <div className="flex gap-x-16">
         <div className="mt-10">
           <h2>Current Bid</h2>
-          <p className="text-4xl font-bold">Ξ 0.00</p>
+          <p className="text-4xl font-bold">Ξ {currentBid.toFixed(3)}</p>
         </div>
         <div className="mt-10 border-l pl-16">
           <h2>Auction Ends At</h2>
