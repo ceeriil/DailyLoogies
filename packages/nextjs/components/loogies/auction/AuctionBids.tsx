@@ -5,7 +5,7 @@ export const AuctionBids = ({ address, amount }: { address: string; amount: numb
   return (
     <div className="flex justify-between border-b">
       <Address address={address} size="lg" />
-      <p className="font-bold text-lg">{amount}</p>
+      <p className="font-bold text-lg">{amount} Ξ</p>
     </div>
   );
 };

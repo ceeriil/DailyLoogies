@@ -110,7 +110,7 @@ export const EtherInput = ({
       placeholder={placeholder}
       onChange={handleChangeNumber}
       disabled={disabled}
-      prefix={<span className="pl-4 -mr-2 text-accent self-center">{internalUsdMode ? "$" : "Ξ"}</span>}
+      prefix={<span className="pl-4 mr-2 text-black self-center">{internalUsdMode ? "$" : "Ξ"}</span>}
       suffix={
         <div
           className={`${
@@ -121,11 +121,11 @@ export const EtherInput = ({
           data-tip="Unable to fetch price"
         >
           <button
-            className="btn btn-primary h-[2.2rem] min-h-[2.2rem]"
+            className="btn border border-black h-[2.2rem] min-h-[2.2rem] mr-4 mt-1"
             onClick={toggleMode}
             disabled={!internalUsdMode && !nativeCurrencyPrice}
           >
-            <ArrowsRightLeftIcon className="h-3 w-3 cursor-pointer" aria-hidden="true" />
+            <ArrowsRightLeftIcon className="h-4 w-4 cursor-pointer" aria-hidden="true" />
           </button>
         </div>
       }
