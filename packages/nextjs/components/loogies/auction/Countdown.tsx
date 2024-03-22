@@ -32,5 +32,5 @@ export const Countdown: React.FC<CountdownProps> = ({ deadline }) => {
 
   useEffect(countdownTimer, [deadline]);
 
-  return <div className="text-4xl font-bold">{timeLeft}</div>;
+  return <div className="text-3xl font-bold">{timeLeft}</div>;
 };

@@ -89,7 +89,7 @@ contract LoogieAuction  is ILoogieAuction,Pausable, ReentrancyGuard, Ownable {
 
         // Refund the last bidder, if applicable
         if (lastBidder != address(0)) {
-            //_safeTransferETHWithFallback(lastBidder, _auction.amount);
+            _safeTransferETHWithFallback(lastBidder, _auction.amount);
         }
 
         auction.amount = msg.value;
@@ -137,11 +137,10 @@ contract LoogieAuction  is ILoogieAuction,Pausable, ReentrancyGuard, Ownable {
         }
 
         if (_auction.amount > 0) {
-            _safeTransferETHWithFallback(owner(), _auction.amount);
+            _safeTransferETHWithFallback(recipient, _auction.amount);
         }
 
         emit AuctionSettled(_auction.loogieId, _auction.bidder, _auction.amount);
-
     }
 
     

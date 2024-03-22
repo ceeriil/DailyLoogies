@@ -13,7 +13,7 @@ export const Card: React.FC<CardProps> = ({ imageUrl, index, name }) => {
   return (
     <div key={index} className="border border-black rounded flex flex-col justify-between min-w-[14rem]">
       <div>
-        <div className="py-1 min-h-[250px] w-full relative rounded-t border-b border-black">
+        <div className="py-1 min-h-[250px] w-full relative rounded-t border-b border-black flex items-center justify-center">
           <Image
             src={!error ? imageUrl : "/img/card-img.png"}
             alt={name + " image"}

@@ -6,7 +6,7 @@ import VoteLoogie from "~~/components/loogies/vote";
 const Vote: NextPage = () => {
   return (
     <>
-      <section className="flex items-center flex-col flex-grow pt-10">
+      <section className="flex items-center flex-col flex-grow pt-10 pb-24">
         <div className="container mx-auto flex flex-col items-center mt-16 text-center">
           <h1 className="font-bold text-[4rem] mb-10">Tommorows Loogies?</h1>
           <div className="flex items-center justify-center">

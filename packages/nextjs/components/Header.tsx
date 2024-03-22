@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useCallback, useRef, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { LoogiesLogo } from "./assets/LoogiesLogo";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
@@ -26,6 +26,10 @@ export const menuLinks: HeaderMenuLink[] = [
   {
     label: "Collection",
     href: "/collection",
+  },
+  {
+    label: "Debug",
+    href: "/debug",
   },
 ];
 
@@ -67,7 +71,7 @@ export const Header = () => {
   );
 
   return (
-    <div className="sticky lg:static top-0 navbar border-b border-black min-h-0 flex-shrink-0 justify-between z-20 shadow-md shadow-secondary px-0 sm:px-2">
+    <div className="sticky lg:static top-0 navbar border-b border-black min-h-0 flex-shrink-0 justify-between z-20 shadow-secondary px-0 sm:px-2 bg-base-100">
       <div className="navbar-start w-auto lg:w-1/2">
         <div className="lg:hidden dropdown" ref={burgerMenuRef}>
           <label
@@ -93,7 +97,7 @@ export const Header = () => {
         </div>
         <Link href="/" passHref className="hidden lg:flex items-center gap-2 ml-4 mr-6 shrink-0">
           <div className="flex relative w-10 h-10">
-            <Image alt="SE2 logo" className="cursor-pointer" fill src="/logo.svg" />
+            <LoogiesLogo className="w-16" />
           </div>
           <div className="flex flex-col mr-8">
             <span className="font-bold leading-tight text-2xl">Daily Loogies</span>

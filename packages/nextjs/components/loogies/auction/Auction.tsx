@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import { Modal } from "../Modal";
 import { AuctionBidLists } from "./AuctionBidLists";
 import { AuctionBids } from "./AuctionBids";
@@ -6,8 +7,6 @@ import { AuctionDetails } from "./AuctionDetails";
 import LoogieComponent from "~~/components/loogies";
 import { EtherInput } from "~~/components/scaffold-eth";
 import { useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
-
-/* import { notification } from "~~/utils/scaffold-eth"; */
 
 export const Auction = () => {
   const [showModal, setShowModal] = useState(false);
@@ -23,23 +22,19 @@ export const Auction = () => {
   };
 
   const { writeAsync: bid } = useScaffoldContractWrite({
-    contractName: "Auction",
-    functionName: "withdraw",
+    contractName: "LoogieAuction",
+    functionName: "createBid",
+    args: [BigInt(1)],
+    value: BigInt(20000000000000),
   });
 
-  /*   const placeBid = () => {
-    const newBid = parseFloat(ethAmount);
-    if (newBid > currentBid) {
-      SetCurrentBid(newBid);
-      SetEthAmount("");
-    } else {
-      notification.error(<p>Bid Placed needs to be higher than Current bid</p>);
-    }
-  }; */
-
   return (
-    <div className="container mx-auto grid grid-cols-2 mt-6">
-      <div>
+    <div className="container mx-auto grid grid-cols-2 mt-4 relative">
+      <div className="absolute w-[25%] top-[-25rem] right-0">
+        <Image src={"/loggiesPicker.svg"} alt="loogie picker" width={100} height={100} />
+      </div>
+
+      <div className="border-2 px-4 border-black py-4">
         <AuctionDetails name={"Loggies #1234"} currentBid={currentBid} />
 
         <div className="mt-6 mb-4 flex">
@@ -58,7 +53,9 @@ export const Auction = () => {
       </div>
 
       <div className="flex items-center justify-center">
-        <LoogieComponent />
+        <div className="ml-[6rem]">
+          <LoogieComponent />
+        </div>
       </div>
 
       {showModal && (

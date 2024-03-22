@@ -1,0 +1,38 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: LoogieAuction
+    network: sepolia
+    source:
+      address: "0xfC6B3408B12A9c1306c86759A289e41aB6e456d5"
+      abi: LoogieAuction
+      startBlock: 5539160
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - ApprovalForAll
+        - MinterUpdated
+        - OwnershipTransferred
+        - Transfer
+      abis:
+        - name: LoogieAuction
+          file: ./abis/LoogieAuction.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+        - event: MinterUpdated(indexed address)
+          handler: handleMinterUpdated
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+      file: ./src/loogie-auction.ts

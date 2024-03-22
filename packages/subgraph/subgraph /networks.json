@@ -1,0 +1,8 @@
+{
+  "sepolia": {
+    "LoogieAuction": {
+      "address": "0xfC6B3408B12A9c1306c86759A289e41aB6e456d5",
+      "startBlock": 5539160
+    }
+  }
+}

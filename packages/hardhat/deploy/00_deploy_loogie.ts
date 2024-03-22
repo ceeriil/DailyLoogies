@@ -1,6 +1,5 @@
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { DeployFunction } from "hardhat-deploy/types";
-//import { Contract } from "ethers";
 
 const deployLoogieNft: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { deployer } = await hre.getNamedAccounts();
@@ -12,10 +11,6 @@ const deployLoogieNft: DeployFunction = async function (hre: HardhatRuntimeEnvir
     log: true,
     autoMine: true,
   });
-
-  // Get the deployed contract to interact with it after deploying.
-  // const loogieContract = await hre.ethers.getContract<Contract>("Loogie", deployer);
-  //console.log("👋 Initial greeting:", await loogieContract.greeting());
 };
 
 export default deployLoogieNft;
