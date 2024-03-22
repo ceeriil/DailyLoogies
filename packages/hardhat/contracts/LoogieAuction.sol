@@ -191,5 +191,4 @@ contract LoogieAuction  is ILoogieAuction,Pausable, ReentrancyGuard, Ownable {
         (bool success, ) = to.call{ value: value, gas: 30_000 }(new bytes(0));
         return success;
     }
-
 }

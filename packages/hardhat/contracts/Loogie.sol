@@ -27,10 +27,13 @@ contract Loogie is ILoogie, ERC721Enumerable, Ownable {
   mapping (uint256 => uint256) public chubbiness;
   mapping (uint256 => uint256) public mouthLength;
 
-  constructor() public ERC721("DailyLoogies", "DL") {
+  address public minter;
+
+  constructor(address _minter) public ERC721("DailyLoogies", "DL") {
+     minter = _minter;
   }
 
-  function mintItem() public override returns (uint256) {
+  function mintItem() public override onlyMinter returns  (uint256) {
       _tokenIds.increment();
 
       uint256 id = _tokenIds.current();
@@ -46,12 +49,20 @@ contract Loogie is ILoogie, ERC721Enumerable, Ownable {
       return id;
   }
   
-  function burnItem(uint256 tokenId) public  {
+  function burnItem(uint256 tokenId) public onlyMinter  {
     require(_exists(tokenId), "Token does not exist");
     require(_isApprovedOrOwner(_msgSender(), tokenId), "Caller is not owner nor approved");
     _burn(tokenId );
   }
 
+  function getCurrentToken() external view returns (uint256) {
+    return _tokenIds.current();
+  }
+
+  function setMinter(address _minter) external override onlyOwner  {
+    minter = _minter;
+    emit MinterUpdated(_minter);
+  }
 
   function tokenURI(uint256 id) public view override returns (string memory) {
       require(_exists(id), "not exist");
@@ -127,4 +138,12 @@ contract Loogie is ILoogie, ERC721Enumerable, Ownable {
       }
       return string(bstr);
   }
+
+     /**
+     * @notice Require that the sender is the minter.
+     */
+    modifier onlyMinter() {
+        require(msg.sender == minter, 'Sender is not the minter');
+        _;
+    }
 }
