@@ -7,10 +7,11 @@ import { ReentrancyGuard } from "@openzeppelin/contracts/security/ReentrancyGuar
 import { Pausable } from "@openzeppelin/contracts/security/Pausable.sol";
 import { Ownable } from "@openzeppelin/contracts/access/Ownable.sol";
 import { IERC20 } from '@openzeppelin/contracts/token/ERC20/IERC20.sol';
-
-
+import { ILoogie } from "./interface/ILoogie.sol";
 
 contract LoogieAuction  is ILoogieAuction,Pausable, ReentrancyGuard, Ownable {
+
+    ILoogie loogie;
 
     ILoogieAuction.Auction public auction;
 
@@ -23,11 +24,16 @@ contract LoogieAuction  is ILoogieAuction,Pausable, ReentrancyGuard, Ownable {
       // The address of the WETH contract
     address public weth;
 
+      // all funds go to buidlguidl.eth
+  address payable public constant recipient = payable(0xa81a6a910FeD20374361B35C451a4a44F86CeD46);
 
-    constructor(uint256 _duration, uint256 _timeBuffer,  uint8 _minBidIncrementPercentage){
+
+    constructor(uint256 _duration, uint256 _timeBuffer,  uint8 _minBidIncrementPercentage,  address _weth, address _loogie){
         duration = _duration;
         timeBuffer =_timeBuffer;
         minBidIncrementPercentage = _minBidIncrementPercentage;
+        weth = _weth;
+        loogie = ILoogie(_loogie);
     }
 
     /**
@@ -116,6 +122,26 @@ contract LoogieAuction  is ILoogieAuction,Pausable, ReentrancyGuard, Ownable {
      * @dev If there are no bids, the Noun is burned.
      */
     function _settleAuction() internal {
+        ILoogieAuction.Auction memory _auction = auction;
+
+        require(_auction.startTime != 0, "Auction hasn't begun");
+        require(!_auction.settled, 'Auction has already been settled');
+        require(block.timestamp >= _auction.endTime, "Auction hasn't completed");
+
+        auction.settled = true;
+
+        if (_auction.bidder == address(0)) {
+            loogie.burnItem(_auction.loogieId);
+        } else {
+            loogie.transferFrom(address(this), _auction.bidder, _auction.loogieId);
+        }
+
+        if (_auction.amount > 0) {
+            _safeTransferETHWithFallback(owner(), _auction.amount);
+        }
+
+        emit AuctionSettled(_auction.loogieId, _auction.bidder, _auction.amount);
+
     }
 
     
@@ -126,6 +152,23 @@ contract LoogieAuction  is ILoogieAuction,Pausable, ReentrancyGuard, Ownable {
      * catch the revert and pause this contract.
      */
     function _createAuction() internal {
+        try loogie.mintItem() returns (uint256 loogieId) {
+            uint256 startTime = block.timestamp;
+            uint256 endTime = startTime + duration;
+
+            auction = Auction( {
+                loogieId: loogieId,
+                amount: 0,
+                startTime: startTime,
+                endTime: endTime,
+                bidder: payable(0),
+                settled: false
+            });
+
+            emit AuctionCreated(loogieId, startTime, endTime);
+        } catch Error(string memory) {
+            _pause();
+        }
 
     }
 
