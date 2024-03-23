@@ -65,6 +65,31 @@
     "inputs": [
       {
         "indexed": true,
+        "internalType": "bytes3",
+        "name": "color",
+        "type": "bytes3"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "chubbiness",
+        "type": "uint256"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "mouthLength",
+        "type": "uint256"
+      }
+    ],
+    "name": "LoogieCreated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
         "internalType": "address",
         "name": "minter",
         "type": "address"

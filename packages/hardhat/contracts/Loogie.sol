@@ -46,6 +46,8 @@ contract Loogie is ILoogie, ERC721Enumerable, Ownable {
 
       mouthLength[id] = 180 + ((uint256(chubbiness[id] / 4) * uint256(uint8(predictableRandom[4]))) / 255);
 
+      emit LoogieCreated(color[id],chubbiness[id],mouthLength[id]);
+
       return id;
   }
   
