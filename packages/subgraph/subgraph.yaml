@@ -1,26 +1,16 @@
-specVersion: 0.0.4
-description: Greetings
-repository: https://github.com/scaffold-eth/se-2/packages/subgraph/
+specVersion: 0.0.3
+description: >-
+  Randomly generated loogie NFTs auctioned daily.
 schema:
-  file: ./src/schema.graphql
+  file: ./schema.graphql
 dataSources:
-  - kind: ethereum/contract
-    name: YourContract
-    network: localhost
+  - kind: ethereum
+    name: LoogieAution
+    network: { { network } }
     source:
-      abi: YourContract
-      address: "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+      abi: LoogieAuction
+      address: "0xAaf9f3DF2da0BD047872a57659e49a75045318B8"
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.6
+      apiVersion: 0.0.7
       language: wasm/assemblyscript
-      entities:
-        - Greeting
-        - Sender
-      abis:
-        - name: YourContract
-          file: ./abis/localhost_YourContract.json
-      eventHandlers:
-        - event: GreetingChange(indexed address,string,bool,uint256)
-          handler: handleGreetingChange
-      file: ./src/mapping.ts

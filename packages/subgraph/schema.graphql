@@ -1,0 +1,67 @@
+type Bid @entity {
+  "Bid transaction hash"
+  id: ID!
+
+  "The Noun being bid on"
+  loogie: Noun!
+
+  "Bid amount"
+  amount: BigInt!
+
+  "Bidder account"
+  bidder: Account
+
+  "Block number of the bid"
+  blockNumber: BigInt!
+
+  "Index of transaction within block"
+  txIndex: BigInt!
+
+  "The auction being bid in"
+  auction: Auction!
+
+  "The timestamp of the block the bid is in"
+  blockTimestamp: BigInt!
+}
+
+type Auction @entity {
+  "Auction ID"
+  id: ID!
+
+  "Total amount of the auction"
+  amount: BigInt!
+
+  "Start time of the auction"
+  startTime: BigInt!
+
+  "End time of the auction"
+  endTime: BigInt!
+
+  "Bidder account"
+  bidder: Account!
+
+  "Flag indicating whether the auction has been settled"
+  settled: Boolean!
+
+  "The auction bids"
+  bids: [Bid!]! @derivedFrom(field: "auction")
+}
+
+type Loogie @entity {
+  "The Loogie`s ERC721 token id"
+  id: ID!
+
+  "The owner of the Loogie`s"
+  owner: Account!
+}
+
+type Account @entity {
+  "An Account is any address that holds any amount of Loogies, the id used is the blockchain address."
+  id: ID!
+
+  "Loogie`s balance of this address expressed as a BigInt normalized value for the Nouns ERC721 Token"
+  tokenBalance: BigInt!
+
+  "The Loogies owned by this account"
+  loogies: [Loogie!]!
+}
