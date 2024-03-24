@@ -6,9 +6,9 @@ Uses a subgraph from The Graph to index and query blockchain data.
 
 [The Graph](https://thegraph.com/) is a protocol for building decentralized applications (dApps) quickly on Ethereum and IPFS using GraphQL.
 
--   🗃️ **Decentralized Indexing**: The Graph enables open APIs ("subgraphs") to efficiently index and organize blockchain data.
--   🔎 **Efficient Querying**: The protocol uses GraphQL for streamlined querying blockchain data.
--   🙌 **Community Ecosystem**: The Graph fosters collaboration by empowering developers to build, deploy, and share subgraphs!
+- 🗃️ **Decentralized Indexing**: The Graph enables open APIs ("subgraphs") to efficiently index and organize blockchain data.
+- 🔎 **Efficient Querying**: The protocol uses GraphQL for streamlined querying blockchain data.
+- 🙌 **Community Ecosystem**: The Graph fosters collaboration by empowering developers to build, deploy, and share subgraphs!
 
 For detailed instructions and more context, check out the [Getting Started Guide](https://thegraph.com/docs/en/cookbook/quick-start).
 
@@ -18,10 +18,10 @@ For detailed instructions and more context, check out the [Getting Started Guide
 
 Before you begin, you need to install the following tools:
 
--   [Node.js](https://nodejs.org/en/download/)
--   Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
--   [Git](https://git-scm.com/downloads)
--   [Docker](https://docs.docker.com/get-docker/)
+- [Node.js](https://nodejs.org/en/download/)
+- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
+- [Git](https://git-scm.com/downloads)
+- [Docker](https://docs.docker.com/get-docker/)
 
 &nbsp;
 
@@ -195,11 +195,11 @@ yarn local-ship
 
 > This command does the following all in one… 🚀🚀🚀
 
--   Copies the contracts ABI from the hardhat/deployments folder
--   Generates the networks.json file
--   Generates AssemblyScript types from the subgraph schema and the contract ABIs.
--   Compiles and checks the mapping functions.
--   … and deploy a local subgraph!
+- Copies the contracts ABI from the hardhat/deployments folder
+- Generates the networks.json file
+- Generates AssemblyScript types from the subgraph schema and the contract ABIs.
+- Compiles and checks the mapping functions.
+- … and deploy a local subgraph!
 
 > If you get an error ts-node you can install it with the following command
 

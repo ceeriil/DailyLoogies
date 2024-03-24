@@ -3,7 +3,7 @@ type Bid @entity {
   id: ID!
 
   "The Noun being bid on"
-  loogie: Noun!
+  loogie: Loogie!
 
   "Bid amount"
   amount: BigInt!
@@ -27,6 +27,9 @@ type Bid @entity {
 type Auction @entity {
   "Auction ID"
   id: ID!
+
+  "The Loogie"
+  loogie: Loogie!
 
   "Total amount of the auction"
   amount: BigInt!
@@ -53,15 +56,41 @@ type Loogie @entity {
 
   "The owner of the Loogie`s"
   owner: Account!
+
+  color: Bytes!
+
+  chubbiness: BigInt!
+
+  mouthLength: BigInt!
 }
 
 type Account @entity {
   "An Account is any address that holds any amount of Loogies, the id used is the blockchain address."
   id: ID!
 
-  "Loogie`s balance of this address expressed as a BigInt normalized value for the Nouns ERC721 Token"
+  "Loogie`s balance of this address expressed as a BigInt normalized value for the  ERC721 Token"
   tokenBalance: BigInt!
 
   "The Loogies owned by this account"
   loogies: [Loogie!]!
+}
+
+type TransferEvent @entity {
+  "The txn hash of this event"
+  id: ID!
+
+  "The Loogie being transfered"
+  loogie: Loogie!
+
+  "Previous holder address"
+  previousHolder: Account!
+
+  "New holder address"
+  newHolder: Account!
+
+  "Block number of the event"
+  blockNumber: BigInt!
+
+  "The timestamp of the block the event is in"
+  blockTimestamp: BigInt!
 }

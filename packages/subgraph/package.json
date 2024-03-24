@@ -4,9 +4,9 @@
   "type": "module",
   "scripts": {
     "abi-copy": "node --loader ts-node/esm --experimental-specifier-resolution=node scripts/abi_copy.ts",
-    "codegen": "graph codegen",
+    "codegen": "graph codegen --output-dir src/types/",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ loogie",
+    "deploy": " graph auth --studio cb2365b3c5f1e9ef2f3b6fcace14c9ba && graph deploy --node https://api.studio.thegraph.com/deploy/ dailyloogies",
     "local-create": "graph create --node http://localhost:8020/ loogie",
     "local-remove": "graph remove --node http://localhost:8020/ loogie",
     "local-deploy": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 loogie",
