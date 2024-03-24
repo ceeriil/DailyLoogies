@@ -75,6 +75,37 @@ const deployedContracts = {
           inputs: [
             {
               indexed: true,
+              internalType: "uint256",
+              name: "tokenId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "bytes3",
+              name: "color",
+              type: "bytes3",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "chubbiness",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "mouthLength",
+              type: "uint256",
+            },
+          ],
+          name: "LoogieCreated",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
               internalType: "address",
               name: "minter",
               type: "address",
@@ -1340,7 +1371,7 @@ const deployedContracts = {
   },
   11155111: {
     Loogie: {
-      address: "0xfC6B3408B12A9c1306c86759A289e41aB6e456d5",
+      address: "0x83296AFF01553E6386fAe17d50118E0659f82678",
       abi: [
         {
           inputs: [
@@ -1401,6 +1432,37 @@ const deployedContracts = {
             },
           ],
           name: "ApprovalForAll",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "uint256",
+              name: "tokenId",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "bytes3",
+              name: "color",
+              type: "bytes3",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "chubbiness",
+              type: "uint256",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "mouthLength",
+              type: "uint256",
+            },
+          ],
+          name: "LoogieCreated",
           type: "event",
         },
         {
@@ -1972,7 +2034,7 @@ const deployedContracts = {
       },
     },
     LoogieAuction: {
-      address: "0xAaf9f3DF2da0BD047872a57659e49a75045318B8",
+      address: "0x210b3B8cc13720cCbb8208Ab4d328Ff488E49112",
       abi: [
         {
           inputs: [
