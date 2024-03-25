@@ -46,7 +46,7 @@ contract Loogie is ILoogie, ERC721Enumerable, Ownable {
 
       mouthLength[id] = 180 + ((uint256(chubbiness[id] / 4) * uint256(uint8(predictableRandom[4]))) / 255);
 
-      emit LoogieCreated(id, color[id],chubbiness[id],mouthLength[id]);
+      emit LoogieCreated(id, color[id],chubbiness[id],mouthLength[id], msg.sender);
 
       return id;
   }
@@ -55,6 +55,7 @@ contract Loogie is ILoogie, ERC721Enumerable, Ownable {
     require(_exists(tokenId), "Token does not exist");
     require(_isApprovedOrOwner(_msgSender(), tokenId), "Caller is not owner nor approved");
     _burn(tokenId );
+    emit LoogieBurned(tokenId);
   }
 
   function getCurrentToken() external view returns (uint256) {

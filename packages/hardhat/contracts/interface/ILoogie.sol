@@ -8,8 +8,11 @@ interface ILoogie is IERC721 {
     uint256 indexed tokenId,
     bytes3  color,
     uint256  chubbiness,
-    uint256  mouthLength
+    uint256  mouthLength,
+    address indexed minter
     );
+
+    event LoogieBurned(uint256 indexed tokenId);
     event MinterUpdated( address indexed minter);
     function mintItem() external returns (uint256);
     function burnItem(uint256 id) external;
