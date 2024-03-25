@@ -1,19 +1,19 @@
 specVersion: 0.0.4
-description: "Randomly generated loogie NFTs auctioned daily."
+description: Randomly generated loogie NFTs auctioned daily.
 schema:
-  file: "./schema.graphql"
+  file: ./schema.graphql
 dataSources:
   - kind: ethereum
     name: LoogieAuction
     network: localhost
     source:
       abi: LoogieAuction
-      address: "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0"
+      address: "0xE6E340D132b5f46d1e472DebcD681B2aBc16e57E"
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
       language: wasm/assemblyscript
-      file: "./src/mapping.ts"
+      file: ./src/mapping/loogieAuction.ts
       entities:
         - Bid
         - Auction
@@ -21,7 +21,7 @@ dataSources:
         - Account
       abis:
         - name: LoogieAuction
-          file: "./abis/sepolia_LoogieAuction.json"
+          file: ./abis/localhost_LoogieAuction.json
       eventHandlers:
         - event: AuctionCreated(indexed uint256,uint256,uint256)
           handler: handleAuctionCreated
@@ -36,20 +36,22 @@ dataSources:
     network: localhost
     source:
       abi: Loogie
-      address: "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+      address: "0x67d269191c92Caf3cD7723F116c85e6E9bf55933"
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
       language: wasm/assemblyscript
-      file: "./src/mapping.ts"
+      file: ./src/mapping/loogie.ts
       entities:
         - Loogie
         - Account
       abis:
         - name: Loogie
-          file: "./abis/sepolia_Loogie.json"
+          file: ./abis/localhost_Loogie.json
       eventHandlers:
-        - event: LoogieCreated(indexed uint256,bytes3,uint256,uint256)
+        - event: LoogieCreated(indexed uint256,bytes3,uint256,uint256,indexed address)
           handler: handleCreatedLoogie
+        - event: LoogieBurned(indexed uint256)
+          handler: handleBurnedLoogie
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer

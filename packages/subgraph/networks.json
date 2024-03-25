@@ -1,25 +1,24 @@
 {
-  "sepolia": {
-    "LoogieAuction": {
-      "address": "0x210b3B8cc13720cCbb8208Ab4d328Ff488E49112",
-      "startBlock": 5539160
-    },
-    "Loogie": {
-      "address": "0x83296AFF01553E6386fAe17d50118E0659f82678"
-    },
-    "WETH": {
-      "address": "0xf7d541135a61b54BD2F79acD7cB1b2223dC9EB8F"
-    }
-  },
   "localhost": {
     "Loogie": {
-      "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+      "address": "0x67d269191c92Caf3cD7723F116c85e6E9bf55933"
     },
     "LoogieAuction": {
-      "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0"
+      "address": "0xE6E340D132b5f46d1e472DebcD681B2aBc16e57E"
     },
     "WETH": {
       "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
+    }
+  },
+  "sepolia": {
+    "Loogie": {
+      "address": "0x3012Ba8bA56842EC99509f014ac2BC5866e6c4D4"
+    },
+    "LoogieAuction": {
+      "address": "0xa126F5924B6D1E50F536F77502c95eEE9365A574"
+    },
+    "WETH": {
+      "address": "0xf7d541135a61b54BD2F79acD7cB1b2223dC9EB8F"
     }
   }
 }
