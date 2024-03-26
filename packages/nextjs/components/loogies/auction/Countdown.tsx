@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 type CountdownProps = {
-  deadline: string;
+  deadline: string | number;
 };
 
 export const Countdown: React.FC<CountdownProps> = ({ deadline }) => {
