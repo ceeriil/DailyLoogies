@@ -1,3 +1,34 @@
+# Daily Loogie
+
+Daily Loogie is a platform where a Single random Loogie NFT is available for auction every day. Interested parties can participate by placing their bids on the NFT and at the end of the day, the NFT is awarded to the highest bidder. The process repeats daily, and a chance for users to acquire unique Loogie NFTs. Additionally, Users are allowed to vote for the design of the next Loogie from a selection of four randomly chosen NFTs.
+
+## How it's Made
+
+DailyLoogie is built using **Scaffold-ETH** and The Graph protocol. The graphprotol is usedto efficiently access and query data from the Ethereum smart contracts. The core components of the project's smart contracts include:
+
+- **Loogie.sol**: This contract is responsible for creating the SVG-based NFTs representing Loogies and mint.
+- **Loogie Auction**: Handles the auction functionality, enabling users to bid on Loogie NFTs.
+- **Loogie Voting**: Vote for Next Loogr.
+
+## Features of the App
+
+- **Bid for NFTs**: Users can place bids on the daily auctioned Loogie NFT.
+- **Refund System**: Users receive refunds for their bids if they are not the highest bidder for a particular auction at.
+
+## Challenges Faced
+
+**1. Randomization in Crypto**: Implementing reliable and unpredictable randomness for selecting the NFTs to be auctioned and voted on presented a significant challenge. Ensuring fairness and unpredictability in the selection process required innovative solutions.
+
+**2. Time Constraints**: Developing a functional and user-friendly platform within the timeframe of the hackathon posed its own set of challenges. Prioritizing features and optimizing development workflows were essential to meeting project deadlines.
+
+## Future Developments
+
+The Daily Loogie platform aims to continuously evolve and improve its features. Future developments may include enhancements to the auction mechanics, further community engagement features, and optimizations for scalability and user experience. Stay tuned for exciting updates and new opportunities to engage with the Daily Loogie community!
+
+## Dedication
+
+Daily loogie was inspired by Nouns and OptimistLoogies. My aim was to create an Auction system for Optimist Loogies
+
 # 🏗 Scaffold-ETH 2
 
 <h4 align="center">
