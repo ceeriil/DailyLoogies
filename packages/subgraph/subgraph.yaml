@@ -8,7 +8,7 @@ dataSources:
     network: localhost
     source:
       abi: LoogieAuction
-      address: "0x4A679253410272dd5232B3Ff7cF5dbB88f295319"
+      address: "0x70e0bA845a1A0F2DA3359C97E0285013525FFC49"
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6

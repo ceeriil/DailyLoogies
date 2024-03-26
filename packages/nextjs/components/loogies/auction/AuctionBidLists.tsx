@@ -18,7 +18,10 @@ export const AuctionBidLists: React.FC<AuctionBidListsProps> = ({ bids }) => {
     <>
       {bids.length > 0 ? (
         bids.map((bid, index) => (
-          <AuctionBids key={index} address={bid?.bidder?.id} amount={formatEther(bid?.amount)} />
+          <div key={index} className="border border-black mb-2">
+            {" "}
+            <AuctionBids key={index} address={bid?.bidder?.id} amount={formatEther(bid?.amount)} />
+          </div>
         ))
       ) : (
         <div className="border w-full border-black py-4 px-2 text-center bg-base-200">

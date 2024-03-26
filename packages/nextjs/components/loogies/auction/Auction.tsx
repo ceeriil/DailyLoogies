@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { Modal } from "../Modal";
 import { AuctionBidLists } from "./AuctionBidLists";
+import { AuctionBidPreview } from "./AuctionBidPreview";
 import { AuctionDetails } from "./AuctionDetails";
 import { ethers } from "ethers";
 import LoogieComponent from "~~/components/loogies/Loogie";
@@ -10,6 +11,7 @@ import { useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
 
 type AuctionProps = {
   loogiesData: any;
+  auctionData?: any;
 };
 
 export const Auction: React.FC<AuctionProps> = ({ loogiesData }) => {
@@ -27,7 +29,7 @@ export const Auction: React.FC<AuctionProps> = ({ loogiesData }) => {
   const { writeAsync: bid } = useScaffoldContractWrite({
     contractName: "LoogieAuction",
     functionName: "createBid",
-    args: [BigInt(1)],
+    args: [BigInt(4)],
     value: currentBid ? ethers.parseEther(currentBid) : undefined,
   });
 
@@ -36,18 +38,25 @@ export const Auction: React.FC<AuctionProps> = ({ loogiesData }) => {
     bid();
   };
 
+  const LoogieAuctionDetails =
+    loogiesData && loogiesData.loogie ? (
+      <AuctionDetails
+        name={loogiesData && loogiesData.loogie?.id}
+        currentBid={loogiesData && loogiesData.auction?.amount}
+        auction={loogiesData.auction}
+      />
+    ) : (
+      <p>Loading Auction details...</p>
+    );
+
   return (
-    <div className="container mx-auto grid grid-cols-2 mt-4 relative">
+    <div className="container mx-auto grid lg:grid-cols-2 mt-4 relative">
       <div className="absolute w-[25%] top-[-25rem] right-0">
         <Image src={"/loggiesPicker.svg"} alt="loogie picker" width={100} height={100} />
       </div>
 
-      <div className="">
-        <AuctionDetails
-          name={loogiesData && loogiesData.loogie?.id}
-          currentBid={loogiesData && loogiesData.auction?.amount}
-          deadline={loogiesData && loogiesData.auction?.endTime}
-        />
+      <div className="lg:order-1 order-2">
+        {LoogieAuctionDetails}
 
         <div className="mt-6 mb-4 flex">
           <EtherInput onChange={amount => setCurrentBid(amount)} value={currentBid} disabled={false} />
@@ -56,13 +65,13 @@ export const Auction: React.FC<AuctionProps> = ({ loogiesData }) => {
           </button>
         </div>
 
-        {/* Button to show all bids  */}
-        <button className="cursor-pointer" onClick={handleOpenModal}>
-          See More
-        </button>
+        {/* Preview bids */}
+        {loogiesData && loogiesData.loogie && (
+          <AuctionBidPreview bids={loogiesData.bids} handleOpenModal={handleOpenModal} />
+        )}
       </div>
 
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center lg:order-2 order-1">
         <div className="ml-[6rem]">
           {loogiesData && loogiesData.loogie && <LoogieComponent loogiesData={loogiesData.loogie} />}
         </div>

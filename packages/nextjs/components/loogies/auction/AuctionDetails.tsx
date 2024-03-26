@@ -1,34 +1,10 @@
 import React from "react";
 import { Countdown } from "./Countdown";
-import { gql, useQuery } from "@apollo/client";
 import { formatEther } from "@ethersproject/units";
 
-export const AuctionDetails = ({
-  name,
-  currentBid,
-  deadline,
-}: {
-  name: string;
-  currentBid: number;
-  deadline: string;
-}) => {
-  const LOOGIE_GRAPHQL = `
-  {loogie(id:1){
-    id,
-  },
-      auction(id:1){
-        amount
-        endTime
-      }
-}
-`;
-
-  const LOOGIE_GQL = gql(LOOGIE_GRAPHQL);
-  console.log(deadline);
-  const { data: loogiesData } = useQuery(LOOGIE_GQL, { pollInterval: 1000 });
-
+export const AuctionDetails = ({ name, currentBid, auction }: { name: string; currentBid: number; auction: any }) => {
   const formattedEndDate = (endDate: string | number) => {
-    if (endDate && loogiesData && loogiesData.auction) {
+    if (endDate) {
       const unixTimeInMilliseconds = Number(endDate) * 1000;
       const auctionEndDate = new Date(unixTimeInMilliseconds);
       return auctionEndDate.toISOString();
@@ -37,7 +13,7 @@ export const AuctionDetails = ({
     }
   };
 
-  console.log(loogiesData);
+  console.log(auction, "hi");
 
   return (
     <div>
@@ -51,14 +27,14 @@ export const AuctionDetails = ({
         <div className="mt-4">
           <h2>Current Bid</h2>
           {currentBid !== undefined ? (
-            <p className="text-3xl font-bold">Ξ {formatEther(currentBid)}</p>
+            <p className="text-3xl font-bold">Ξ {formatEther(auction.amount)}</p>
           ) : (
             <span className="loading loading-spinner loading-lg"></span>
           )}
         </div>
         <div className="mt-4 border-l pl-16">
           <h2>Auction Ends At</h2>
-          {loogiesData && <Countdown deadline={formattedEndDate(loogiesData.auction?.endTime)} />}
+          <Countdown deadline={formattedEndDate(auction?.endTime)} />
         </div>
       </div>
     </div>

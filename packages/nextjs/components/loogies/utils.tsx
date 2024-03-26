@@ -7,6 +7,7 @@ export function RenderLoogie({
   mouthLength,
   width = 400,
   height = 400,
+  className,
 }: {
   id: string;
   color: string;
@@ -14,10 +15,11 @@ export function RenderLoogie({
   mouthLength: number;
   width?: number;
   height?: number;
+  className?: string;
 }) {
   return (
     <svg
-      className="scale-150"
+      className={`scale-150 ${className}`}
       id={id}
       width={width}
       height={height}

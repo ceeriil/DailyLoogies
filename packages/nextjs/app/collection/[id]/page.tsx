@@ -1,5 +1,6 @@
 "use client";
 
+import { useParams } from "next/navigation";
 import { gql, useQuery } from "@apollo/client";
 import type { NextPage } from "next";
 import { Auction } from "~~/components/loogies/auction/Auction";
@@ -14,7 +15,6 @@ const LOOGIE_GRAPHQL = gql`
     }
     auction(id: $id) {
       amount
-      endTime
     }
     bids(first: 6, orderBy: amount, orderDirection: desc) {
       id
@@ -32,11 +32,19 @@ const LOOGIE_GRAPHQL = gql`
   }
 `;
 
-const Home: NextPage = () => {
+const CollectionId: NextPage = () => {
+  const router = useParams();
+  let slug: number | undefined;
+  if (Array.isArray(router.id)) {
+    slug = parseInt(router.id[0]);
+  } else {
+    slug = parseInt(router.id);
+  }
   const { data: loogiesData } = useQuery(LOOGIE_GRAPHQL, {
-    variables: { id: 4 },
+    variables: { id: slug },
     pollInterval: 1000,
   });
+  console.log(slug, typeof slug, "hello");
 
   return (
     <>
@@ -47,4 +55,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default CollectionId;

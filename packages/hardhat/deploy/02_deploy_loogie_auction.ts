@@ -18,11 +18,11 @@ const deployLoogieActionContract: DeployFunction = async function (hre: HardhatR
   }
 
   const [hour, minBidIncrementPercentage] = [3600, 5];
-  const duration = hour / 12;
+  const duration = hour / 2;
 
   const loogieAuction = await deploy("LoogieAuction", {
     from: deployer,
-    args: [duration, hour, minBidIncrementPercentage, weth, loogieNftAddress],
+    args: [duration, 0, minBidIncrementPercentage, weth, loogieNftAddress],
     log: true,
     autoMine: true,
   });

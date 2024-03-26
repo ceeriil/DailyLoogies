@@ -2,7 +2,7 @@ import { LoogieCreated, Transfer, LoogieBurned } from "../types/Loogie/Loogie";
 import { Loogie, TransferEvent } from "../types/schema";
 import { getOrCreateAccount } from "../util/helper";
 import { log } from "@graphprotocol/graph-ts";
-import { BIGINT_ONE, BIGINT_ZERO } from "../util/constants";
+import { BIGINT_ONE, BIGINT_ZERO, ZERO_ADDRESS } from "../util/constants";
 
 export function handleCreatedLoogie(event: LoogieCreated): void {
   let loogieId = event.params.tokenId.toString();
@@ -25,7 +25,7 @@ export function handleBurnedLoogie(event: LoogieBurned): void {
     ]);
     return;
   }
-  loogie.unset(loogieId);
+  loogie.owner = getOrCreateAccount(ZERO_ADDRESS).id;
 }
 export function handleTransfer(event: Transfer): void {
   // Get the sender and receiver accounts
