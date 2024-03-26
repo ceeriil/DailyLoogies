@@ -46,7 +46,7 @@ export const ScaffoldEthAppWithProviders = ({ children }: { children: React.Reac
     setMounted(true);
   }, []);
 
-  const subgraphUri = "http://localhost:8000/subgraphs/name/loogie/graphql";
+  const subgraphUri = "http://localhost:8000/subgraphs/name/loogie";
   const apolloClient = new ApolloClient({
     uri: subgraphUri,
     cache: new InMemoryCache(),

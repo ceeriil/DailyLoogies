@@ -5,14 +5,25 @@ export function RenderLoogie({
   color,
   chubbiness,
   mouthLength,
+  width = 400,
+  height = 400,
 }: {
   id: string;
   color: string;
   chubbiness: number;
   mouthLength: number;
+  width?: number;
+  height?: number;
 }) {
   return (
-    <svg id={id} width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      className="scale-150"
+      id={id}
+      width={width}
+      height={height}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox={`0 0 ${width} ${height}`}
+    >
       <g id="eye1">
         <ellipse strokeWidth="3" ry="29.5" rx="29.5" id="svg_1" cy="154.5" cx="181.5" stroke="#000" fill="#fff" />
         <ellipse ry="3.5" rx="2.5" id="svg_3" cy="154.5" cx="173.5" strokeWidth="3" stroke="#000" fill="#000000" />
@@ -33,7 +44,7 @@ export function RenderLoogie({
         <ellipse strokeWidth="3" ry="29.5" rx="29.5" id="svg_2" cy="168.5" cx="209.5" stroke="#000" fill="#fff" />
         <ellipse ry="3.5" rx="3" id="svg_4" cy="169.5" cx="208" strokeWidth="3" fill="#000000" stroke="#000" />
       </g>
-      <g className="mouth" transform={`translate(${(12 * chubbiness) / 11},0)`}>
+      <g className="mouth" transform={`translate(${(810 - 9 * chubbiness) / 11},0)`}>
         <path d={`M 130 240 Q 165 250 ${mouthLength} 235`} stroke="black" strokeWidth="3" fill="transparent" />
       </g>
     </svg>
