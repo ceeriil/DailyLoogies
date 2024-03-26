@@ -19,8 +19,6 @@ services:
       ipfs: "ipfs:5001"
       ethereum: "localhost:http://host.docker.internal:8545"
       GRAPH_LOG: info
-      ETHEREUM_REORG_THRESHOLD: 1
-      ETHEREUM_ANCESTOR_COUNT: 1
     extra_hosts:
       - "host.docker.internal:host-gateway"
   ipfs:

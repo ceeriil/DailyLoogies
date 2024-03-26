@@ -1,24 +1,24 @@
 {
   "localhost": {
     "Loogie": {
-      "address": "0x67d269191c92Caf3cD7723F116c85e6E9bf55933"
+      "address": "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0"
     },
     "LoogieAuction": {
-      "address": "0xE6E340D132b5f46d1e472DebcD681B2aBc16e57E"
+      "address": "0x4A679253410272dd5232B3Ff7cF5dbB88f295319"
     },
     "WETH": {
-      "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
+      "address": "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9"
     }
   },
   "sepolia": {
     "Loogie": {
-      "address": "0x3012Ba8bA56842EC99509f014ac2BC5866e6c4D4"
+      "address": "0xad5e9545e7cf781295Df2A926848089d5df5f289"
     },
     "LoogieAuction": {
-      "address": "0xa126F5924B6D1E50F536F77502c95eEE9365A574"
+      "address": "0xc4cE2aEF86D93cB5873A27D32D5567578E905b97"
     },
     "WETH": {
-      "address": "0xf7d541135a61b54BD2F79acD7cB1b2223dC9EB8F"
+      "address": "0x5c6A8a97B4Cb1b9Ca806160C0220a8d461442D54"
     }
   }
 }
