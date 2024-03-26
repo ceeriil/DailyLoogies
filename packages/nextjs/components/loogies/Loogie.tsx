@@ -1,40 +1,35 @@
 import React from "react";
 import useHexToColor from "../../hooks/loogie/useHexToColor";
 import { RenderLoogie } from "./utils";
-import { gql, useQuery } from "@apollo/client";
 
-export default function LoogieComponent() {
-  const LOOGIES_GRAPHQL = `
-    {
-      loogies(first: 1) {
-        id
-        chubbiness
-        mouthLength
-        color
-      }
-    }
-  `;
+interface LoogieComponentProps {
+  loogiesData: {
+    id: string;
+    chubbiness: number;
+    color: string;
+    mouthLength: number;
+  };
+}
 
-  const LOOGIES_GQL = gql(LOOGIES_GRAPHQL);
-  const { loading, data: loogiesData } = useQuery(LOOGIES_GQL, { pollInterval: 1000 });
-  const color = useHexToColor(loogiesData?.loogies?.[0]?.color);
+export const LoogieComponent: React.FC<LoogieComponentProps> = ({ loogiesData }) => {
+  const color = useHexToColor(loogiesData?.color);
 
-  if (loading) {
-    return <p>Loading...</p>;
+  if (!loogiesData) {
+    return <p>No loogies data available</p>;
   }
 
   return (
     <>
-      {loogiesData && loogiesData.loogies && loogiesData.loogies.length > 0 && (
-        <div className="scale-150">
-          <RenderLoogie
-            id={loogiesData.loogies[0].id}
-            color={color}
-            chubbiness={loogiesData.loogies[0].chubbiness}
-            mouthLength={loogiesData.loogies[0].mouthLength}
-          />
-        </div>
-      )}
+      <div className="scale-150">
+        <RenderLoogie
+          id={loogiesData.id}
+          color={color}
+          chubbiness={loogiesData.chubbiness}
+          mouthLength={loogiesData.mouthLength}
+        />
+      </div>
     </>
   );
-}
+};
+
+export default LoogieComponent;

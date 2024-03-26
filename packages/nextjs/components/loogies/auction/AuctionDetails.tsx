@@ -53,7 +53,7 @@ export const AuctionDetails = ({
           {currentBid !== undefined ? (
             <p className="text-3xl font-bold">Ξ {formatEther(currentBid)}</p>
           ) : (
-            <p>Loading current bid...</p>
+            <span className="loading loading-spinner loading-lg"></span>
           )}
         </div>
         <div className="mt-4 border-l pl-16">

@@ -3,13 +3,16 @@ import Image from "next/image";
 import { Modal } from "../Modal";
 import { AuctionBidLists } from "./AuctionBidLists";
 import { AuctionDetails } from "./AuctionDetails";
-import { gql, useQuery } from "@apollo/client";
 import { ethers } from "ethers";
 import LoogieComponent from "~~/components/loogies/Loogie";
 import { EtherInput } from "~~/components/scaffold-eth";
 import { useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
 
-export const Auction = () => {
+type AuctionProps = {
+  loogiesData: any;
+};
+
+export const Auction: React.FC<AuctionProps> = ({ loogiesData }) => {
   const [showModal, setShowModal] = useState(false);
   const [currentBid, setCurrentBid] = useState<string>("0.00");
 
@@ -27,33 +30,6 @@ export const Auction = () => {
     args: [BigInt(1)],
     value: currentBid ? ethers.parseEther(currentBid) : undefined,
   });
-
-  const LOOGIE_GRAPHQL = `
-  {
-    loogie(id:1){
-      id,
-      chubbiness,
-      color
-      mouthLength
-    },
-        auction(id:1){
-          amount
-        }
-        bids(first: 6, orderBy: amount, orderDirection: desc) {
-        id,amount, bidder {
-          id
-        }, auction {
-          endTime,
-          startTime,
-          id
-          amount
-        }   
-      }
-    }
-`;
-
-  const LOOGIE_GQL = gql(LOOGIE_GRAPHQL);
-  const { data: loogiesData } = useQuery(LOOGIE_GQL, { pollInterval: 1000 });
 
   const placeBid = (amount: string) => {
     setCurrentBid(amount);
@@ -80,8 +56,7 @@ export const Auction = () => {
           </button>
         </div>
 
-        {/*         <AuctionBidLists bids={sampleBidData} />
-         */}
+        {/* Button to show all bids  */}
         <button className="cursor-pointer" onClick={handleOpenModal}>
           See More
         </button>
@@ -89,10 +64,11 @@ export const Auction = () => {
 
       <div className="flex items-center justify-center">
         <div className="ml-[6rem]">
-          <LoogieComponent />
+          {loogiesData && loogiesData.loogie && <LoogieComponent loogiesData={loogiesData.loogie} />}
         </div>
       </div>
 
+      {/* Modal to Show All Bids */}
       {showModal && (
         <Modal onClose={handleCloseModal} title={"Bid for Loogies"}>
           {loogiesData && loogiesData.loogie && <AuctionBidLists bids={loogiesData.bids} />}
