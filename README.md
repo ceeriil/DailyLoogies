@@ -1,11 +1,6 @@
 # Daily Loogie
 
-
-<h4 align="center">
-  <a href="https://sepolia.etherscan.io/address/0x2af56dc2c853f02c4744ffe6b9820dffc5c2172a"> Loogie NFT Contract</a> |
-    <a href="https://sepolia.etherscan.io/address/0x2af56dc2c853f02c4744ffe6b9820dffc5c2172a"> Loogie Auction Contract</a>|
-  <a href="https://dailyloogies.vercel.app/">Website</a>
-</h4>
+https://www.loom.com/share/5b5187290e264202a7f45c99c403a748?sid=dd84146e-bdb1-4c38-97ad-1ce66ef31c6e
 
 Daily Loogie is a platform where a Single random Loogie NFT is available for auction every day. Interested parties can participate by placing their bids on the NFT and at the end of the day, the NFT is awarded to the highest bidder. The process repeats daily, and a chance for users to acquire unique Loogie NFTs. Additionally, Users are allowed to vote for the design of the next Loogie from a selection of four randomly chosen NFTs.
 
