@@ -1,5 +1,11 @@
 # Daily Loogie
 
+<h4 align="center">
+  <a href="https://sepolia.etherscan.io/address/0x2af56dc2c853f02c4744ffe6b9820dffc5c2172a"> Loogie NFT Contract</a> |
+    <a href="https://sepolia.etherscan.io/address/0x2af56dc2c853f02c4744ffe6b9820dffc5c2172a"> Loogie Auction Contract</a>|
+  <a href="https://dailyloogies.vercel.app/">Website</a>
+</h4>
+
 Daily Loogie is a platform where a Single random Loogie NFT is available for auction every day. Interested parties can participate by placing their bids on the NFT and at the end of the day, the NFT is awarded to the highest bidder. The process repeats daily, and a chance for users to acquire unique Loogie NFTs. Additionally, Users are allowed to vote for the design of the next Loogie from a selection of four randomly chosen NFTs.
 
 ## How it's Made
@@ -8,7 +14,7 @@ DailyLoogie is built using **Scaffold-ETH** and The Graph protocol. The graphpro
 
 - **Loogie.sol**: This contract is responsible for creating the SVG-based NFTs representing Loogies and mint.
 - **Loogie Auction**: Handles the auction functionality, enabling users to bid on Loogie NFTs.
-- **Loogie Voting**: Vote for Next Loogr.
+- **Loogie Voting**: Vote for Next Loogie.
 
 ## Features of the App
 
@@ -17,7 +23,7 @@ DailyLoogie is built using **Scaffold-ETH** and The Graph protocol. The graphpro
 
 ## Challenges Faced
 
-**1. Randomization in Crypto**: Implementing reliable and unpredictable randomness for selecting the NFTs to be auctioned and voted on presented a significant challenge. Ensuring fairness and unpredictability in the selection process required innovative solutions.
+**1. Randomization in Solidity**: Implementing reliable and unpredictable randomness for selecting the NFTs to be auctioned and voted on presented a significant challenge. Ensuring fairness and unpredictability in the selection process required innovative solutions.
 
 **2. Time Constraints**: Developing a functional and user-friendly platform within the timeframe of the hackathon posed its own set of challenges. Prioritizing features and optimizing development workflows were essential to meeting project deadlines.
 
@@ -28,25 +34,6 @@ The Daily Loogie platform aims to continuously evolve and improve its features. 
 ## Dedication
 
 Daily loogie was inspired by Nouns and OptimistLoogies. My aim was to create an Auction system for Optimist Loogies
-
-# 🏗 Scaffold-ETH 2
-
-<h4 align="center">
-  <a href="https://docs.scaffoldeth.io">Documentation</a> |
-  <a href="https://scaffoldeth.io">Website</a>
-</h4>
-
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
-
-⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, Viem, and Typescript.
-
-- ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
-- 🪝 **[Custom hooks](https://docs.scaffoldeth.io/hooks/)**: Collection of React hooks wrapper around [wagmi](https://wagmi.sh/) to simplify interactions with smart contracts with typescript autocompletion.
-- 🧱 [**Components**](https://docs.scaffoldeth.io/components/): Collection of common web3 components to quickly build your frontend.
-- 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
-- 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
-
-![Debug Contracts tab](https://github.com/scaffold-eth/scaffold-eth-2/assets/55535804/b237af0c-5027-4849-a5c1-2e31495cccb1)
 
 ## Requirements
 
