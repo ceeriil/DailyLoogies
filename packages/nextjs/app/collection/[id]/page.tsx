@@ -12,21 +12,25 @@ const LOOGIE_GRAPHQL = gql`
       chubbiness
       color
       mouthLength
+      owner
     }
     auction(id: $id) {
-      amount
-    }
-    bids(first: 6, orderBy: amount, orderDirection: desc) {
-      id
+      endTime
+      startTime
+      settled
       amount
       bidder {
         id
       }
-      auction {
-        endTime
-        startTime
+      loogie {
+        owner
+      }
+      bids(orderBy: amount, orderDirection: desc) {
         id
         amount
+        bidder {
+          id
+        }
       }
     }
   }
@@ -49,7 +53,7 @@ const CollectionId: NextPage = () => {
   return (
     <>
       <section className="flex items-center flex-col flex-grow pt-5 relative">
-        <Auction loogiesData={loogiesData} />
+        <Auction loogieId={slug} loogiesData={loogiesData} />
       </section>
     </>
   );

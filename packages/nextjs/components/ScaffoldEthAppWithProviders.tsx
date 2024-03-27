@@ -30,8 +30,8 @@ const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
       <div className="flex flex-col min-h-screen app">
         <Header />
         <main className="relative flex flex-col flex-1">{children}</main>
-        <Footer />
       </div>
+      <Footer />
       <Toaster />
     </>
   );
@@ -46,7 +46,7 @@ export const ScaffoldEthAppWithProviders = ({ children }: { children: React.Reac
     setMounted(true);
   }, []);
 
-  const subgraphUri = "http://localhost:8000/subgraphs/name/loogie";
+  const subgraphUri = "https://api.studio.thegraph.com/proxy/64348/dailyloogies/0.0.4";
   const apolloClient = new ApolloClient({
     uri: subgraphUri,
     cache: new InMemoryCache(),

@@ -5,10 +5,10 @@ schema:
 dataSources:
   - kind: ethereum
     name: LoogieAuction
-    network: localhost
+    network: sepolia
     source:
       abi: LoogieAuction
-      address: "0x70e0bA845a1A0F2DA3359C97E0285013525FFC49"
+      address: "0x6F2d7f159F00e0aE9197D3eF5Cc480D33aE0f693"
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -21,7 +21,7 @@ dataSources:
         - Account
       abis:
         - name: LoogieAuction
-          file: LoogieAuction/abis/localhost_LoogieAuction.json
+          file: LoogieAuction/abis/sepolia_LoogieAuction.json
       eventHandlers:
         - event: AuctionCreated(indexed uint256,uint256,uint256)
           handler: handleAuctionCreated
@@ -33,10 +33,10 @@ dataSources:
           handler: handleAuctionSettled
   - kind: ethereum
     name: Loogie
-    network: localhost
+    network: sepolia
     source:
       abi: Loogie
-      address: "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0"
+      address: "0x2Af56dC2c853f02C4744ffe6b9820dffc5C2172A"
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -47,7 +47,7 @@ dataSources:
         - Account
       abis:
         - name: Loogie
-          file: Loogie/abis/localhost_Loogie.json
+          file: Loogie/abis/sepolia_Loogie.json
       eventHandlers:
         - event: LoogieCreated(indexed uint256,bytes3,uint256,uint256,indexed address)
           handler: handleCreatedLoogie

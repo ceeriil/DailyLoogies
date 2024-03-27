@@ -25,7 +25,7 @@ export const AuctionBidPreview: React.FC<AuctionBidListsProps> = ({ bids, handle
               <AuctionBids key={index} address={bid?.bidder?.id} amount={formatEther(bid?.amount)} />
             ))
         ) : (
-          <div className="border w-full border-black py-4 px-2 text-center bg-base-200">
+          <div className="border w-full border-black py-4 px-2 text-center bg-base-200 mt-4">
             No bid has been made for this Loogie yet.
           </div>
         )}

@@ -53,4 +53,14 @@ export function handleTransfer(event: Transfer): void {
 
   fromAccount.tokenBalance = fromAccount.tokenBalance.minus(BIGINT_ONE);
   toAccount.tokenBalance = toAccount.tokenBalance.plus(BIGINT_ONE);
+  let loogie = Loogie.load(transferredLoogieId);
+  if (loogie == null) {
+    log.error("[handleTranfer] Loogie #{} not found. Hash: {}", [
+      transferredLoogieId,
+      event.transaction.hash.toHex(),
+    ]);
+    return;
+  }
+  loogie.owner = toAccount.id;
+  loogie.save();
 }

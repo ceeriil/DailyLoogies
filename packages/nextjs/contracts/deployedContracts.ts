@@ -1390,7 +1390,7 @@ const deployedContracts = {
   },
   11155111: {
     Loogie: {
-      address: "0xad5e9545e7cf781295Df2A926848089d5df5f289",
+      address: "0x2Af56dC2c853f02C4744ffe6b9820dffc5C2172A",
       abi: [
         {
           inputs: [
@@ -1699,6 +1699,19 @@ const deployedContracts = {
               internalType: "bool",
               name: "",
               type: "bool",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "limit",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
             },
           ],
           stateMutability: "view",
@@ -2072,7 +2085,7 @@ const deployedContracts = {
       },
     },
     LoogieAuction: {
-      address: "0xc4cE2aEF86D93cB5873A27D32D5567578E905b97",
+      address: "0x6F2d7f159F00e0aE9197D3eF5Cc480D33aE0f693",
       abi: [
         {
           inputs: [
@@ -2481,7 +2494,7 @@ const deployedContracts = {
       },
     },
     WETH: {
-      address: "0x5c6A8a97B4Cb1b9Ca806160C0220a8d461442D54",
+      address: "0x487b702311Cb982FA59446eb0421F248C3101EF4",
       abi: [
         {
           anonymous: false,

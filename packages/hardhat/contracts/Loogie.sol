@@ -23,6 +23,8 @@ contract Loogie is ILoogie, ERC721Enumerable, Ownable {
   using Counters for Counters.Counter;
   Counters.Counter private _tokenIds;
 
+  uint256 public constant limit = 3728;
+
   mapping (uint256 => bytes3) public color;
   mapping (uint256 => uint256) public chubbiness;
   mapping (uint256 => uint256) public mouthLength;
@@ -32,8 +34,10 @@ contract Loogie is ILoogie, ERC721Enumerable, Ownable {
   constructor(address _minter) public ERC721("DailyLoogies", "DL") {
      minter = _minter;
   }
-
+   
   function mintItem() public override onlyMinter returns  (uint256) {
+      
+        require(_tokenIds.current() < limit, "DONE MINTING");
       _tokenIds.increment();
 
       uint256 id = _tokenIds.current();

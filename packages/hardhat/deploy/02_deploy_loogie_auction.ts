@@ -18,7 +18,7 @@ const deployLoogieActionContract: DeployFunction = async function (hre: HardhatR
   }
 
   const [hour, minBidIncrementPercentage] = [3600, 5];
-  const duration = hour / 2;
+  const duration = hour * 24;
 
   const loogieAuction = await deploy("LoogieAuction", {
     from: deployer,
