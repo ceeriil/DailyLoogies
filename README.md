@@ -1,5 +1,6 @@
 # Daily Loogie
 
+<iframe width="800" height="450" src="https://www.loom.com/embed/5b5187290e264202a7f45c99c403a748?sid=62ee77c0-8002-498e-8fcc-b7b11e2be07e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 <h4 align="center">
   <a href="https://sepolia.etherscan.io/address/0x2af56dc2c853f02c4744ffe6b9820dffc5c2172a"> Loogie NFT Contract</a> |
     <a href="https://sepolia.etherscan.io/address/0x2af56dc2c853f02c4744ffe6b9820dffc5c2172a"> Loogie Auction Contract</a>|
