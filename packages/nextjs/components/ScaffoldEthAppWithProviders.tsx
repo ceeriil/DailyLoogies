@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import { RainbowKitProvider, darkTheme, lightTheme } from "@rainbow-me/rainbowkit";
-import { useTheme } from "next-themes";
+import { RainbowKitProvider, lightTheme } from "@rainbow-me/rainbowkit";
 import { Toaster } from "react-hot-toast";
 import { WagmiConfig } from "wagmi";
 import { Footer } from "~~/components/Footer";
@@ -38,13 +37,13 @@ const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
 };
 
 export const ScaffoldEthAppWithProviders = ({ children }: { children: React.ReactNode }) => {
-  const { resolvedTheme } = useTheme();
-  const isDarkMode = resolvedTheme === "light";
-  const [mounted, setMounted] = useState(false);
+  /*   const { resolvedTheme } = useTheme();
+   */ /*   const isDarkMode = resolvedTheme === "light";
+  const [mounted, setMounted] = useState(false); */
 
-  useEffect(() => {
+  /*   useEffect(() => {
     setMounted(true);
-  }, []);
+  }, []); */
 
   const subgraphUri = "https://api.studio.thegraph.com/proxy/64348/dailyloogies/0.0.4";
   const apolloClient = new ApolloClient({
@@ -56,11 +55,7 @@ export const ScaffoldEthAppWithProviders = ({ children }: { children: React.Reac
     <ApolloProvider client={apolloClient}>
       <WagmiConfig config={wagmiConfig}>
         <ProgressBar />
-        <RainbowKitProvider
-          chains={appChains.chains}
-          avatar={BlockieAvatar}
-          theme={mounted ? (isDarkMode ? darkTheme() : lightTheme()) : lightTheme()}
-        >
+        <RainbowKitProvider chains={appChains.chains} avatar={BlockieAvatar} theme={lightTheme()}>
           <ScaffoldEthApp>{children}</ScaffoldEthApp>
         </RainbowKitProvider>
       </WagmiConfig>
