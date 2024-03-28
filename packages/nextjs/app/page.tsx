@@ -51,7 +51,7 @@ const Home: NextPage = () => {
   const { data: loogiesData } = useQuery(LOOGIE_GRAPHQL, {
     variables: { id: parseInt(loogieId) },
     pollInterval: 10000,
-    skip: !loogieId, // Skip the query if the latest auction ID is not available
+    skip: !loogieId,
   });
 
   return (
