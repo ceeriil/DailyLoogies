@@ -15,7 +15,7 @@ DailyLoogie is built using **🏗 Scaffold-ETH 2** and The Graph protocol. The g
 ## 🛠️ Features of Daily Loogie
 
 - **Bid for todays Loogies**: Users can place bids on the Loogie NFT.
-- **Refund**: Users receive refunds for their bids if they are not the highest bidder for a particular auction at.
+- **Refund**: Users receive refunds for their bids if they are not the highest bidder for a particular auction at
 - **Vote**: Users can vote on their suggestion of the next Loogie
 - **History**: See bid history and their winners
 - All proceeds goes to the Buidl Guidl Address
@@ -87,8 +87,8 @@ Visit our [docs](https://docs.scaffoldeth.io) to learn how to start building wit
 
 To know more about its features, check out our [website](https://scaffoldeth.io).
 
-## Contributing to Scaffold-ETH 2
+## Contributing to Daily Loogie
 
-We welcome contributions to Scaffold-ETH 2!
+We welcome contributions to Daily Loogie!
 
 Please see [CONTRIBUTING.MD](https://github.com/scaffold-eth/scaffold-eth-2/blob/main/CONTRIBUTING.md) for more information and guidelines for contributing to Scaffold-ETH 2.
